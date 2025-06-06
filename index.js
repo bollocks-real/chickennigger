@@ -121,3 +121,14 @@ function createBot() {
 }
 
 createBot();
+
+// Keep-alive server for Render
+const express = require("express");
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get("/", (req, res) => res.send("👋 Bot is running and alive!"));
+
+app.listen(PORT, () => {
+  console.log(`🌐 Keep-alive web server listening on port ${PORT}`);
+});
